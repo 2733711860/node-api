@@ -5,6 +5,8 @@ app.use(koabodyparser({
   multipart: true // 是否支持 multipart-formdate 的表单
 }));
 
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+
 require('./util/qqRequest/colors');
 
 // logger
