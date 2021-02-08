@@ -1,6 +1,7 @@
 module.exports = {
   sqlCongif: {
     host: '121.41.79.10',
+    // host: 'localhost',
     user: 'root',
     port: '3306',
     database: 'mxt',

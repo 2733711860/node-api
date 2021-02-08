@@ -29,21 +29,24 @@ module.exports = (ctx) => {
     });
     let str = list.join('&');
     apiObj.apiUrl = `${apiObj.apiUrl}?${str}`;
+    console.log(apiObj.apiUrl)
     axios.get(apiObj.apiUrl)
     .then(res => {
-      console.log(res)
-      resolve(res.data)
+      resolve({
+        status: 200,
+        data: res.data,
+        msg: '成功'
+      })
     })
     .catch(error => {
-      console.log(error)
       resolve({
         status: 400,
-        data: error,
+        data: null,
         msg: '调用失败'
       })
     });
   })
-}
+};
 
 // 判断是否是汉字
 function isChinese(s) {

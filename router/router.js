@@ -2,7 +2,7 @@ const router = require('koa-router')();
 const fs = require('fs');
 const path = require('path');
 const request = require('../util/qqRequest/request');
-const controller = require('../controller/post/pic');
+const controller = require('../controller/post');
 
 router.get('/', async (ctx, next) => {
   ctx.body = "hello world! create by pawn! my blog => http://blog.lcylove.cn"
@@ -32,5 +32,7 @@ function requireRouters(base_path) {
 
 // post
 router.post('/api/upload/picture', controller.uploadPicture); // 图片上传
+router.post('/api/add/route', controller.addRoute); // 新增路由
+router.post('/api/get/route', controller.getRoute); // 获取路由
 
 module.exports = router;

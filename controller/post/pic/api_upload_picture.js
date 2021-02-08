@@ -3,6 +3,7 @@
  * @author: mwd
  * @param:
  * @date: 2021/1/28
+ * http://qnmfzc41w.hn-bkt.clouddn.com/mwd-picture-1.jpg
  */
 // 为文件进行命名（唯一标识）
 const uuid = require("uuid");

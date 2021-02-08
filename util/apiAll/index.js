@@ -24,11 +24,12 @@ const apiList = [
   { apiName: '获取诗词列表', apiCode: '17', apiUrl: 'http://poetry.apiopen.top/poetryFull' }, // get，参数 page：页码；count：每页多少条
   { apiName: '获取诗词作者列表', apiCode: '18', apiUrl: 'http://poetry.apiopen.top/poetryAuthor' }, // get，参数 page：页码；count：每页多少条；name：搜索名称（选填）
   { apiName: '腾讯天气', apiCode: '19', apiUrl: 'https://wis.qq.com/weather/common' }, // get，参数 source：xw；weather_type：forecast_1h|forecast_24h|index|alarm|limit|tips；province；city；county
+  { apiName: '成语接龙', apiCode: '9', apiUrl: 'http://apis.juhe.cn/idiomJie/query' }, // get，参数 https://www.juhe.cn/docs/api/id/565
 ];
 
 module.exports = {
   apiList
-}
+};
 
 // 语音合成(文字转语音)：
 // text=文字(支持中英文)，
