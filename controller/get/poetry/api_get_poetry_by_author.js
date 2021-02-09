@@ -1,7 +1,7 @@
 /**
  * @description: 根据关键词搜索诗词（作者、诗词名、诗词内容都可）
  * @author: mwd
- * @param: { page: '页码', pageSize: '每页数量', type: '类型' }
+ * @param: { page: '页码', pageSize: '每页数量', dynasty: '朝代', author: '作者' }
  * @date: 2021/2/8
  */
 // dynasty: {
@@ -29,7 +29,8 @@ module.exports = (ctx) => {
       let {
         page = 1,
         pageSize = 10,
-        type = ''
+        dynasty = '',
+        author = ''
       } = ctx.query;
       page = Number(page);
       pageSize = Number(pageSize);
@@ -44,8 +45,12 @@ module.exports = (ctx) => {
       }
 
       let searchSql = `select sql_calc_found_rows * from poetry`;
-      if (type) { // 类型
-        searchSql = `${searchSql} where type = '${type}'`;
+      if (dynasty && !author) { // 只有朝代
+        searchSql = `${searchSql} where dynasty = '${dynasty}'`;
+      } else if (!dynasty && author) { // 只有作者
+        searchSql = `${searchSql} where author = '${author}'`;
+      } else if (dynasty && author) { // 朝代、作者
+        searchSql = `${searchSql} where dynasty = '${dynasty}' and author = '${author}'`;
       }
       searchSql = `${searchSql} order by id asc limit ${(page-1) * (pageSize)}, ${pageSize}`;
       let result = await findData(searchSql);

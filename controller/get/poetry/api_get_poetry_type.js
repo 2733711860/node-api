@@ -11,10 +11,16 @@ module.exports = (ctx) => {
     try {
       let searchSql = `select type from poetry`;
       let result = await findData(searchSql);
+      let list = [];
+      await result.forEach(item => {
+        if (list.findIndex(itee => itee.type == item.type) == -1) {
+          list.push(item);
+        }
+      });
       resolve({
         status: 200,
         data: {
-          list: result
+          list: list
         },
         msg: '查询成功'
       })

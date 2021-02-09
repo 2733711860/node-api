@@ -220,7 +220,7 @@ async function getPagePoetry(list, one) {
           let id = normalize(`${author}${name}`);
           poetryList.push({
             id: id,
-            type: one.type,
+            type: one.name,
             name: name,
             author: author,
             authorLink: authorLink,
